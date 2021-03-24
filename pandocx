@@ -1,0 +1,3 @@
+#!/bin/sh
+TMPFILE=$(mktemp -u).html > "$TMPFILE"
+pandoc $1 > $TMPFILE && xdg-open $TMPFILE && echo "Opened document in a browser 😀"
