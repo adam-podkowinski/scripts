@@ -2,5 +2,6 @@
 mkdir build/ -p
 cd build/
 cmake ../
-ln -s compile_commands.json ../compile_commands.json
+unlink ../compile_commands.json
 make
+ln -s $(pwd)/compile_commands.json ../compile_commands.json

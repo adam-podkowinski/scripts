@@ -3,7 +3,8 @@
 # The famous "get a menu of emojis to copy" script.
 
 # Get user selection via dmenu from emoji file.
-chosen=$(cut -d ';' -f1 ~/scripts/emoji | dmenu -i -l 30 | sed "s/ .*//")
+#chosen=$(cut -d ';' -f1 ~/scripts/emoji | dmenu -i -l 30 | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/scripts/emoji | dmenu -i -l 30 | cut -d '&' -f1)
 
 # Exit if none chosen.
 [ -z "$chosen" ] && exit
