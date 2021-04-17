@@ -1,4 +1,4 @@
 #!/bin/sh
 makecmake.sh
 cd build/
-./$1
+./$1 $2
