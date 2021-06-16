@@ -1,3 +1,5 @@
 #!/bin/sh
 TMPFILE=$(mktemp -u).html > "$TMPFILE"
 pandoc $1 > $TMPFILE && xdg-open $TMPFILE && echo "Opened document in a browser 😀"
+#pandoc --extract-media ./myMediaFolder input.docx -o output.md
+
