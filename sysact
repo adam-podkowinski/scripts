@@ -12,8 +12,8 @@ cmds="\
 🔒 lock		slock
 🚪 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
 🐻 hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
-🔃 reboot	doas reboot
-🖥 shutdown 	doas shutdown now"
+🔃 reboot	doas openrc-shutdown -r now
+🖥 shutdown 	doas openrc-shutdown -p now"
 
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
 
