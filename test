@@ -1,0 +1,56 @@
+
+#!/bin/bash
+# Date : (2013-10-24 12-30)
+# Distribution used to test : Arch Linux - 64-bit
+# Author : DJYoshaBYD
+# Licence : GPLv3
+# PlayOnLinux: 4.2.1
+
+
+# check to make sure wineprefix is 32 bit, throw error if not. 32 prefix only.
+
+if [ "$POL_ARCH" == "amd64" ]; then
+POL_Debug_Fatal "64-bit wineprefix is not supported. Please use a 32-bit prefix."
+
+# Throw error if user is not in 'audio' group.
+
+elif [ "$(groups | grep -o "audio")" != "audio" ]; then
+
+POL_Debug_Fatal "$USER is not part of the 'audio' group. Please add $USER to 'audio' group."
+
+# Throw an error if jack and/or qjackctl are missing.
+
+elif [ "$(type -P jackd | grep -o "jackd")" != "jackd" ]; then
+
+POL_Debug_Fatal "Jack is not installed. Please install jack if you want to use WineASIO."
+
+elif [ "$(type -P qjackctl | grep -o "qjackctl")" != "qjackctl" ]; then
+
+POL_Debug_Fatal "QJackCTL is not installed. Please install qjackctl if you want to use WineASIO."
+fi
+
+# If everything is OK, then download wineasio.dll.so to new $POL_USER_ROOT/ressources/TMP
+
+mkdir $POL_USER_ROOT/ressources/TMP
+cd $POL_USER_ROOT/ressources/TMP
+
+POL_Download "https://googledrive.com/host/0B8f6x82bTIm1S1ZzOTVUdWxLMDg/wineasio.dll.so" "94247efbe53cbf622d1fdd86880099d8"
+
+POL_SetupWindow_wait_next_signal "$(eval_gettext 'Downloading...')" "WineASIO"
+
+# Copy wineasio.dll.so to system32 folder in $WINEPREFIX, and register to $WINEPREFIX. Throw error if it fails.
+
+POL_Debug_Message "Installing WineASIO..."
+
+cp $POL_USER_ROOT/ressources/TMP/wineasio.dll.so $WINEPREFIX/drive_c/windows/system32/wineasio.dll.so
+
+if [ "$(regsvr32 $WINEPREFIX/drive_c/windows/system32/wineasio.dll | grep -o "Successfully")" != "Successfully" ]; then
+POL_Debug_Fatal "Failed to register wineasio.dll. Please verify you have the needed dependencies and try again."
+
+else     echo "Success. WineASIO is now ready for use in $WINEPREFIX"
+
+# Cleanup TMP folder
+
+rm -rf $POL_USER_ROOT/ressources/TMP
+
+fi

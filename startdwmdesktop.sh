@@ -9,4 +9,5 @@ xmodmap ~/.config/xmodmap
 export QT_QPA_PLATFORMTHEME=gtk2
 picom -b
 xinput --set-prop 'pointer:COMPANY USB Device' 'libinput Accel Profile Enabled' 0 1
+xinput --set-prop 13 'libinput Accel Profile Enabled' 0, 1
 exec dwm
