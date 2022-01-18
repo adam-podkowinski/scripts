@@ -1,6 +1,5 @@
 #!/bin/bash
 killall x11vnc
-doas modprobe -r evdi
 doas modprobe evdi initial_device_count=2
 xrandr --setprovideroutputsource 1 0 --setprovideroutputsource 2 0
 OUTPUT=$(xrandr | grep DVI-I-1-. | cut -d\  -f1)
