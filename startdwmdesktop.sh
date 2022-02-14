@@ -4,7 +4,7 @@ nitrogen --restore &
 slstatus &
 /usr/lib/polkit-kde-authentication-agent-1 &
 dunst &
-#/usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/pipewire-media-session &
+/usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/pipewire-media-session &
 setxkbmap pl
 xmodmap ~/.config/xmodmap
 export QT_QPA_PLATFORMTHEME=gtk2
