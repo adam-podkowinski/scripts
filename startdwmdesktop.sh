@@ -1,5 +1,5 @@
 #!/bin/sh
-xset r rate 199 30
+xset r rate 170 36
 nitrogen --restore &
 slstatus &
 /usr/lib/polkit-kde-authentication-agent-1 &
