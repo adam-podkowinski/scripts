@@ -2,7 +2,7 @@
 xset r rate 170 36
 nitrogen --restore &
 slstatus &
-/usr/lib/polkit-kde-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dunst &
 /usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/pipewire-media-session &
 setxkbmap pl
