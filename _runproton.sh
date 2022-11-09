@@ -4,11 +4,11 @@ Help()
    # Display Help
    echo "Run app with proton in a terminal."
    echo
-   echo "runproton.sh <path_to_proton> <prefix> <apppath>"
+   echo "runproton.sh <version> <prefix> <apppath>"
    echo "example command:"
-   echo "runproton.sh ~/.config/heroic/tools/proton/Proton-GE-Proton7-24/proton 0 myfavoritegame.exe"
+   echo "runproton.sh GE-Proton7-19 0 myfavoritegame.exe"
    echo
-   echo "path_to_proton Path to proton executable to use"
+   echo "version        Proton version to use (make sure it exists in ~/.steam/root/compatibilitytools.d/). example: GE-Proton7-19"
    echo "prefix         Proton prefix to use (will be created in ~/.local/share/proton-pfx/). example: 0"
    echo "apppath        Path to the app to run."
    echo "-h             Print this Help."
@@ -28,4 +28,4 @@ if [ -z "$3" ]; then
     exit 1
 fi
 
-DXVK_HUD=fps WINEFSYNC=1 STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.steam/steam" STEAM_COMPAT_DATA_PATH=$HOME/.local/share/proton-pfx/$2 gamemoderun $1 run $3
+DXVK_HUD=fps WINEFSYNC=1 STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.steam/steam" STEAM_COMPAT_DATA_PATH=$2 gamemoderun ~/.steam/root/compatibilitytools.d/$1/proton run $3
