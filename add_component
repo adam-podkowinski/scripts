@@ -1,6 +1,3 @@
 #!/bin/sh
 mkdir -p src/$1
-touch src/$1/$2.jsx
-touch src/$1/$2.module.scss
-
-printf "import classes from \"./$2.module.scss\";\n\nfunction $2() {}\n\nexport default $2;" > src/$1/$2.jsx
+touch src/$1/$2.tsx
