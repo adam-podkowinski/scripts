@@ -1,3 +1,5 @@
 #!/bin/sh
 mkdir -p src/$1
 touch src/$1/$2.tsx
+
+printf "const $2 = () => {}\n\nexport default $2;" > src/$1/$2.tsx
