@@ -4,7 +4,8 @@ nitrogen --restore &
 slstatus &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dunst &
-/usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/wireplumber &
+pulseaudio --start
+# /usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/wireplumber &
 setxkbmap pl
 setxkbmap -option caps:swapescape
 xmodmap ~/.config/xmodmap
