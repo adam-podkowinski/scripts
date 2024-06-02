@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nvim -u ~/.config/nvim/init-small.lua $1
