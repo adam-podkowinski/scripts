@@ -1,5 +1,5 @@
 #!/bin/sh
-color=$(xccp -x)
+color=$(hyprpicker)
 notify-send "Color picked:
 $color" -t 10000
-echo $color | xclip -sel clip
+echo $color | wl-copy

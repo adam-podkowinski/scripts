@@ -12,7 +12,7 @@ cmds="\
 🔒 lock		waylock
 🚪 leave hyprland	kill -TERM $(pgrep -u $USER "\bHyprland$")
 🔃 reboot	doas reboot
-🖥 shutdown 	doas shutdown now"
+💀 shutdown 	doas shutdown now"
 
 choice="$(echo "$cmds" | cut -d'	' -f 1 | wofi --show dmenu)" || exit 1
 
